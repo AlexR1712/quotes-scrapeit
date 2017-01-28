@@ -1,30 +1,30 @@
 const scrapeIt = require("scrape-it");
 const request = require('request');
-const sleep = require('sleep');
 const telegram = {
-  token: "PASTE_YOUR_TELEGRAM_BOT_TOKEN",
-  chat_id: "Chat id or Channel @username"
+// Telegram Token and Chat id or Channel username.
+  token: "",
+  chat_id: ""
 }
 
 // Callback interface
 function getQuotes(count) {
     count = '-' + count || "";
     scrapeIt("http://frasesmotivacion.net/frases-motivadoras" + count, {
-        // Fetch the articles
+        // Fetch the quotes list
         quotes: {
             listItem: ".quote-v3",
             data: {
 
-                // Get the article date and convert it into a Date object
+                // Get the quote text
                 text: {
                     selector: ".quote-v3 blockquote a:first-child"
                 }
 
-                // Get the title
+                // Get the quote author
                 ,
                 author: ".quote-v3 blockquote cite"
 
-                    // Nested list
+                // Get image of quote
                     ,
                 image: {
                     selector: ".quote-v3 blockquote a img",
@@ -33,10 +33,10 @@ function getQuotes(count) {
             }
         }
 
-    }, (err, page) => {
-        //console.log(err || page);
-        if (page) {
-            page.quotes.forEach(function(element) {
+    }, (err, items) => {
+        
+        if (items) {
+            items.quotes.forEach(function(element) {
 
                 quote = element.text.split(".");
                 quote.pop();

@@ -1,0 +1,29 @@
+{
+  "name": "quote-scrapper-to-telegram",
+  "version": "1.0.0",
+  "description": "Scrapping quotes in spanish and send to telegram.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexR1712/quotes-scrapeit.git"
+  },
+  "keywords": [
+    "telegram",
+    "quotes",
+    "scrapeit",
+    "web-scrapping"
+  ],
+  "author": "@AlexR1712",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexR1712/quotes-scrapeit/issues"
+  },
+  "homepage": "https://github.com/AlexR1712/quotes-scrapeit#readme",
+  "dependencies": {
+    "request": "^2.79.0",
+    "scrape-it": "^3.2.2"
+  }
+}
